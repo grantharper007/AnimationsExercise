@@ -1,0 +1,125 @@
+div {
+    border: 10px solid darkcyan;
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+#red {
+    background-color: red;
+}
+
+#green {
+    background-color: green;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#orange {
+    background-color: orange;
+}
+
+#purple {
+    background-color: purple;
+}
+
+#brown {
+    background-color: brown;
+}
+
+/* START BELOW THIS LINE */
+
+/* 1. Using Transition have the first div (The red one) double its width from 150px to 300px when you hover over it. Also, have this happen over a period of 3 seconds. Finally, when you stop hovering over it it should go back to 150px width over a period of 3 seconds as well. */
+
+#red{
+    transition-property: all;
+    transition-delay: 3s;
+    transition-duration: 3s;
+}
+
+#red:hover {
+    width: 300px;
+    height: 300px;
+}
+
+
+/* 2. Using Transition again have the second div (The green one) rotate a full 360 degrees clockwise and change its background color to yellow when you hover over it. Have the rotation happen over a period of 2 seconds, but have the yellow background color show as soon as you hover over the div. Furthermore, have the rotation start 1 second after you start hovering over the div (NOTE: The yellow background color should still show as soon as you hover over the div). Finally, when you stop hovering over it it should immediately change back to green and then after a 1 second it should spin a full 360 degrees counter clockwise over a period of 2 seconds. */
+
+#green {
+    transition-property: transform;
+    transition-duration: 2s;
+    transition-delay: 1s;
+    }
+
+#green:hover{
+    background-color: yellow;
+    transform: rotate(360deg);
+}
+
+
+/* 3. Using Animation create an animation called “expand” that causes the third div (The blue one) to triple its width to 450px and then go back to back to 150px over a period of 8 seconds when the webpage first loads or is refreshed. After 4 seconds the width should be at 450px and after 8 seconds it should be back at 150px (HINT: 50%). */
+
+#blue {
+    animation-name: expand;
+    animation-duration: 8s;
+}
+
+@keyframes expand {
+    50% {
+        width: 450px;
+    }
+    100%{
+        width: 150px;
+    }
+}
+
+/* BONUS */
+
+/* 1. Using Transition again have the fourth div (The orange one) rotate 1080 degrees clockwise over a period of 5 seconds when you hover over the div. When you stop hovering over it it should rotate 1080 degrees counter clockwise over a period of 5 seconds as well. Also, use the “transition-timing-function” property and use a value that will cause the square to starting spinning slow at first and then picks up speed as it goes. For an Extra Bonus use a Cubic Bezier do to this (HINT: Chrome Dev Tools). */
+
+#orange {
+    transition: all;
+    transition-duration: 5s;
+    transition-timing-function: cubic-bezier(0.49,-0.56, 1, 0.52);
+}
+
+#orange:hover{
+    transform: rotate(1080deg);
+}
+
+/* 2. Using Animation again create an animation called “circle” that causes the fifth div (The purple one) to change from a square to a circle over a period of 2 seconds when the webpage first loads or is refreshed (HINT: 85px). Also, have it stay a circle after the animation is complete. */
+
+#purple {
+    animation-name: circle;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes circle {
+    100%{
+        border-radius: 85px;
+    }
+}
+
+/* 3. Using Animation again create an animation called “flip” that causes the sixth div (The brown one) to complete the animation in the video below continuously without stopping after the webpage first loads or is refreshed. (NOTE: The animation takes 4 seconds to complete each time. Also, the div moves 200px to the right and 200px up for each animation.) */
+
+#brown {
+    animation-name: flip;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flip {
+    25%{
+        transform: translateX(200px);
+    }
+    50%{
+        transform: translateX(200px) translateY(-200px) scaleY(-1);
+    }
+    75%{
+        transform: translateX(200px) scaleY(1);
+    }
+    
+}
